@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="MetroGrocer.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroGrocer.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.TopAppBar>
+        <AppBar>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <ToggleButton x:Name="ListViewButton" 
+                    Style="{StaticResource ToggleAppBarButtonStyle}" 
+                    AutomationProperties.Name="List View" IsChecked="True"
+                    Content="&#xE14C;" Click="NavBarButtonPress"/>
+                <ToggleButton x:Name="DetailViewButton" 
+                    Style="{StaticResource ToggleAppBarButtonStyle}" 
+                    AutomationProperties.Name="Detail View" 
+                    Content="&#xE1A3;" Click="NavBarButtonPress"/>                
+            </StackPanel>
+        </AppBar>
+    </Page.TopAppBar>
+    
+    <Grid Background="{StaticResource ApplicationPageBackgroundBrush}">
+        <Frame x:Name="MainFrame" />
+    </Grid>
+</Page>

@@ -1,0 +1,30 @@
+﻿<UserControl
+    x:Class="MetroGrocer.Flyouts.HomeZipCodeFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroGrocer.Flyouts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="130"
+    d:DesignWidth="350">
+
+    <Popup x:Name="HomeZipCodePopup" 
+           IsLightDismissEnabled="True" Width="350" Height="130" >
+        <StackPanel Background="Black">
+            <Border Background="#85C54C" BorderThickness="4">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock Style="{StaticResource PopupTextStyle}"  
+                                Text="Home Zip Code:" VerticalAlignment="Center" 
+                                Margin="0,0,10,0" />
+                        <TextBox Height="40" Width="150" FontSize="20"
+                                 Text="{Binding Path=HomeZipCode, Mode=TwoWay}" />
+                    </StackPanel>
+                    <Button Click="OKButtonClick" HorizontalAlignment="Center" 
+                            Margin="10">OK</Button>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Popup>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="MetroGrocer.Flyouts.AddItemFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroGrocer.Flyouts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="265"
+    d:DesignWidth="435">
+
+    <Popup x:Name="AddItemPopup" IsLightDismissEnabled="True" Width="435" Height="265" >
+        <StackPanel Background="Black">
+            <Border Background="#85C54C" BorderThickness="4">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Name:" Style="{StaticResource AddItemText}"  />
+                    <TextBlock Text="Quantity:" Grid.Row="1" 
+                               Style="{StaticResource AddItemText}" />
+                    <TextBlock Text="Store:" Grid.Row="2" 
+                               Style="{StaticResource AddItemText}" />
+
+                    <TextBox x:Name="ItemName" Grid.Column="1" 
+                             Style="{StaticResource AddItemTextBox}" />
+                    <TextBox x:Name="ItemQuantity" Grid.Row="1" Grid.Column="1" 
+                             Style="{StaticResource AddItemTextBox}" />
+                    <ComboBox x:Name="ItemStore" Grid.Column="1" Grid.Row="2" 
+                              Style="{StaticResource AddItemStore}" 
+                              ItemsSource="{Binding StoreList}" 
+                              DisplayMemberPath="" />
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" 
+                                HorizontalAlignment="Center" 
+                                Grid.ColumnSpan="2">
+                        <Button Click="AddButtonClick">Add Item</Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Popup>
+
+</UserControl>

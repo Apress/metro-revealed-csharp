@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="MetroGrocer.Pages.DetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroGrocer.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="GridLayout" Background="#71C524">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="OrientationStates">
+                <VisualState x:Name="Snapped">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetProperty="Grid.ColumnDefinitions[0].Width" 
+                            Storyboard.TargetName="GridLayout">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <GridLength>0</GridLength>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Others">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetProperty="Grid.ColumnDefinitions[0].Width" 
+                            Storyboard.TargetName="GridLayout">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <GridLength>*</GridLength>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <StackPanel x:Name="TopLeft" Background="#3E790A">
+            <TextBlock x:Name="TopLeftText" 
+                       Style="{StaticResource DetailViewLabelStyle}" 
+                       Text="Top-Left"/>
+        </StackPanel>
+
+        <StackPanel x:Name="TopRight" Background="#70a524" Grid.Column="1" Grid.Row="0">
+            <TextBlock x:Name="TopRightText" 
+                       Style="{StaticResource DetailViewLabelStyle}" 
+                       Text="Top-Right"/>
+            <Button Click="HandleButtonClick">Unsnap</Button>
+        </StackPanel>
+
+        <StackPanel x:Name="BottomLeft" Background="#1E3905" Grid.Row="1">
+            <TextBlock x:Name="BottomLeftText" 
+                       Style="{StaticResource DetailViewLabelStyle}" Text="Bottom-Left"/>
+        </StackPanel>
+
+        <StackPanel x:Name="BottomRight" Background="#45860B" Grid.Column="1" 
+                    Grid.Row="1">
+            <TextBlock x:Name="BottomRightText" 
+                       Style="{StaticResource DetailViewLabelStyle}" 
+                       Text="Bottom-Right"/>
+        </StackPanel>
+    </Grid>
+</Page>
